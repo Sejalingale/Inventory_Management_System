@@ -3,21 +3,17 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-CATEGORY=(
-      ('Stationary','Stationary'),
-      ('Electronics','Electronics'),
-      ('Food','Food'),
-)
+
 
 class Product(models.Model):
     name = models.CharField(max_length=100,default="Unnamed Product")
-    category = models.CharField(max_length=50,choices=CATEGORY,null=True)
+    category = models.CharField(max_length=50,null=True)
     sku = models.CharField(max_length=50,unique=True,default="xxx")
     quantity = models.PositiveIntegerField(default=0)
     stock = models.PositiveIntegerField(default=0)
     price = models.DecimalField( max_digits=10, decimal_places=2,default=0.00)
     supplier = models.CharField( max_length=50,default="xyz")
-    expiration_date = models.DateField()
+    expiration_date = models.DateField(null=True)
     threshold = models.PositiveIntegerField(default=10)  # Alert when stock falls below this
 
 def __str__(self):

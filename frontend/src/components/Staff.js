@@ -1,9 +1,11 @@
 import React from 'react'
 import Topnav from './Topnav'
+import Navbar from './Navbar';
 
 export default function Staff() {
   return (
     <div>
+      <Navbar/>
       <Topnav />
       <div class="container">
         <div class="row my-4">

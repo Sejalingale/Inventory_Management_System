@@ -1,12 +1,15 @@
 import React from 'react'
 import Topnav from './Topnav'
+import Navbar from './Navbar'
 
 
 export default function Index() {
   return (
     <div>
-          <Topnav />
-          {/* add charts here */}
+      {" "}
+      <Navbar />
+      <Topnav />
+      {/* add charts here */}
     </div>
-  )
+  );
 }
