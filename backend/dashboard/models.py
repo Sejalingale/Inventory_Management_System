@@ -17,7 +17,8 @@ class Product(models.Model):
     threshold = models.PositiveIntegerField(default=10)  # Alert when stock falls below this
 
 def __str__(self):
-        return str(self.name)
+        return str(self.name) 
+
 
 def is_below_threshold(self):
         return self.stock < self.threshold
@@ -29,4 +30,4 @@ class Order(models.Model):
       date = models.DateTimeField(auto_now_add=True)
 
 def __str__(self):
-       return str(self.product.name)
+    return self.product.name if self.product else "No Product"

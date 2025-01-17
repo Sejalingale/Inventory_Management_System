@@ -1,20 +1,18 @@
-import React from "react";
+import React from 'react'
 import { useContext } from "react";
 import { AuthContext } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
 
+export default function Viewer_navbar() {
 
-export default function Navbar() {
-  const { logout } = useContext(AuthContext);
-  const navigate = useNavigate();
-  // Function to handle logout
-  const handleLogout = () => {
-    logout(); // Call the logout function from AuthContext
-    navigate("/"); // Redirect to the login page
-  };
-
-  
-
+    const { logout } = useContext(AuthContext);
+      const navigate = useNavigate();
+      // Function to handle logout
+      const handleLogout = () => {
+        logout(); // Call the logout function from AuthContext
+        navigate("/"); // Redirect to the login page
+    };
+    
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -35,25 +33,7 @@ export default function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a
-                  className="nav-link active"
-                  aria-current="page"
-                  href="/dashboard"
-                >
-                  Dashboard
-                </a>
-              </li>
-
-              <li className="nav-item">
-                <a
-                  className="nav-link active"
-                  aria-current="page"
-                  href="/order"
-                >
-                  orders
-                </a>
-              </li>
+             
             </ul>
             <div className="d-flex">
               <button

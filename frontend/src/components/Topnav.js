@@ -88,7 +88,7 @@ export default function Topnav() {
                   <div className="col-md-4">
                     <Link
                       className="text-decoration-none text-dark"
-                      to="/order"
+                      to="/viewer_index"
                     >
                       <div className="card my-card shadow text-center p-3">
                         <h4>

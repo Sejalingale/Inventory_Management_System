@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.db.models import F
-from .models import Product
+from .models import Product,Order
 from .serializers import StockAlertSerializer
 import csv
 from django.http import HttpResponse
@@ -10,6 +10,7 @@ from rest_framework.decorators import api_view,permission_classes
 from django.contrib.auth.models import User
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.permissions import IsAuthenticated
+
 
 class StockAlertView(APIView):
     def get(self, request):
@@ -45,6 +46,7 @@ def register_user(request):
         user = User.objects.create_user(
             username=data['username'],
             password=data['password'],
+            email=data['email'],
             is_staff = data.get('is_admin',False) # this line is for admin role if is_admin is true
         )
         return Response({'message':'user registered successfully!'},status=status.HTTP_201_CREATED)
@@ -62,3 +64,6 @@ def get_user_role(request):
 
 class CustomTokenObtainPairView(TokenObtainPairView):
     pass
+
+
+
