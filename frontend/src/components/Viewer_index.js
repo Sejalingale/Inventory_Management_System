@@ -53,7 +53,7 @@ export default function Viewer_index() {
           },
         }
       );
-      alert(response.data.message);
+      
       // Refresh orders after submission
       const ordersResponse = await axios.get(
         "http://127.0.0.1:8000/api/orders/",
@@ -77,11 +77,17 @@ export default function Viewer_index() {
 
   return (
     <div>
-      <Viewer_navbar/>
-      <div class="row mt-4">
+      <Viewer_navbar />
+      <div className="container my-4 text-center" style={{ color: " #4d79ff" }}>
+        <h1>Make your orders here</h1>
+      </div>
+
+      <div class="row mt-5 my-5">
         <div class="col-md-4">
-          <div class="card">
-            <div class="card-header">Make Request</div>
+          <div class="card shadow-lg ml-3">
+            <div class="card-header" style={{ color: " #3333ff" }}>
+              <strong>Make Request</strong>
+            </div>
             <div class="card-body">
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -114,19 +120,22 @@ export default function Viewer_index() {
                   className="btn btn-info btn-block"
                   type="submit"
                   value="Make Request"
+                  style={{ backgroundColor: " #4d79ff" }}
                 />
               </form>
             </div>
           </div>
         </div>
         <div class="col-md-8">
-          <div class="card">
-            <div class="card-header">Orders Records</div>
+          <div class="card shadow-lg mr-5">
+            <div class="card-header" style={{ color: " #3333ff" }}>
+              <strong>Orders Records</strong>
+            </div>
             <div class="card-body">
               <table class="table bg-white">
-                <thead class="bg-info text-white">
+                <thead>
                   <tr>
-                    <th scope="col">Product</th>
+                    <th scope="col"> Product</th>
 
                     <th scope="col">Quantity</th>
                   </tr>
@@ -135,7 +144,7 @@ export default function Viewer_index() {
                   {orders.map((order) => (
                     <tr key={order.id}>
                       <td>{order.product_name}</td>
-                      
+
                       <td>{order.order_quantity}</td>
                     </tr>
                   ))}

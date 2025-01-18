@@ -12,10 +12,12 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.permissions import IsAuthenticated
 
 
+
+
 class StockAlertView(APIView):
     def get(self, request):
         # Filter items with stock below the threshold
-        low_stock_items = Product.objects.filter(stock__lt=F('threshold'))
+        low_stock_items = Product.objects.filter(quantity__lt=F('threshold'))
         serializer = StockAlertSerializer(low_stock_items, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -28,12 +30,12 @@ def generate_csv_report(request):
     writer = csv.writer(response)
 
     # Write the header row
-    writer.writerow(['ID', 'Name','Quantity','Category','SKU','price','Supplier','Expiration_date', 'Stock', 'Threshold'])
+    writer.writerow(['ID', 'Name','Quantity','Category','SKU','price','Supplier','Expiration_date', 'Threshold'])
 
     # Write the data rows from the Product model
     products = Product.objects.all()
     for product in products:
-        writer.writerow([product.id, product.name,product.quantity,product.category,product.sku,product.price,product.supplier,product.expiration_date, product.stock, product.threshold,])
+        writer.writerow([product.id, product.name,product.quantity,product.category,product.sku,product.price,product.supplier,product.expiration_date, product.threshold,])
 
     return response
 

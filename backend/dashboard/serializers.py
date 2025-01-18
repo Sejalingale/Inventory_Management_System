@@ -10,7 +10,7 @@ class ProductSerializer(serializers.ModelSerializer):
 class StockAlertSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['id', 'name', 'stock', 'threshold']
+        fields = ['id', 'name', 'quantity', 'threshold']
 
 class UserSerializer(serializers.ModelSerializer):
     class  Meta:

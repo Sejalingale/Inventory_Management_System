@@ -1,25 +1,22 @@
-import React from "react";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
 
-
 export default function Navbar() {
-  const { logout } = useContext(AuthContext);
+  const { logout, user } = useContext(AuthContext); // Access user from AuthContext
   const navigate = useNavigate();
+
   // Function to handle logout
   const handleLogout = () => {
     logout(); // Call the logout function from AuthContext
     navigate("/"); // Redirect to the login page
   };
 
-  
-
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="#" style={{ color: "#884dff" }}>
             Gen Inventory
           </a>
           <button
@@ -40,26 +37,20 @@ export default function Navbar() {
                   className="nav-link active"
                   aria-current="page"
                   href="/dashboard"
+                  style={{ color: "#884dff" }}
                 >
                   Dashboard
                 </a>
               </li>
-
-              <li className="nav-item">
-                <a
-                  className="nav-link active"
-                  aria-current="page"
-                  href="/order"
-                >
-                  orders
-                </a>
-              </li>
+             
             </ul>
-            <div className="d-flex">
+            <div className="d-flex align-items-center">
+             
               <button
-                className="btn btn-outline-success me-3"
-                type="button" // Change to "button" to prevent form submission
-                onClick={handleLogout} // Call handleLogout on click
+                className="btn btn-outline me-3"
+                type="button"
+                onClick={handleLogout}
+                style={{ color: "#884dff" }}
               >
                 Log out
               </button>

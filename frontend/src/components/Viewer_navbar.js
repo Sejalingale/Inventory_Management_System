@@ -33,13 +33,15 @@ export default function Viewer_navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              
              
             </ul>
             <div className="d-flex">
               <button
-                className="btn btn-outline-success me-3"
+                className="btn  me-3"
                 type="button" // Change to "button" to prevent form submission
                 onClick={handleLogout} // Call handleLogout on click
+                style={{ color: "#884dff" }}
               >
                 Log out
               </button>

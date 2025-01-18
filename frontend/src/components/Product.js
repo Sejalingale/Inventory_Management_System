@@ -65,13 +65,21 @@ export default function ProductCRUD() {
 
     return (
       <div>
-        <Navbar/>
+        <Navbar />
         <Topnav />
         <div className="container">
           <div className="row my-4">
             {/* Form to Add Products */}
-            <div className="col-md-4">
-              <div className="border bg-white p-3">
+            <div className="col-md-3">
+              <div
+                className=" p-3"
+                style={{
+                  border: "1px solid #ddd", // Light border
+                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Light shadow
+                  borderRadius: "8px", // Optional: adds rounded corners for better appearance
+                  backgroundColor: "#b3b3ff",
+                }}
+              >
                 <h4>Add Products</h4>
                 <hr />
                 <form onSubmit={handleFormSubmit}>
@@ -144,16 +152,7 @@ export default function ProductCRUD() {
                         onChange={handleInputChange}
                       />
                     </div>
-                    <div className="form-group">
-                      <label>Stock</label>
-                      <input
-                        type="number"
-                        className="form-control"
-                        name="stock"
-                        value={formData.stock}
-                        onChange={handleInputChange}
-                      />
-                    </div>
+
                     <div className="form-group">
                       <label>Threshold</label>
                       <input
@@ -166,23 +165,37 @@ export default function ProductCRUD() {
                     </div>
                   </div>
                   <input
-                    className="btn btn-success btn-block"
+                    className="btn  btn-block"
                     type="submit"
                     value="Add Product"
+                    style={{ backgroundColor: " #4d79ff" }}
                   />
                 </form>
               </div>
             </div>
 
             {/* Product Table */}
-            <div className="col-md-8">
-              <table className="table bg-white">
+            <div className="col-md-9">
+              <table
+                className="table "
+                style={{
+                  border: "4px solid #ddd", // Light border
+                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Light shadow
+                  borderRadius: "8px", // Optional: adds rounded corners for better appearance
+                  backgroundColor: "#b3b3ff",
+                }}
+              >
                 <thead className="bg-info">
                   <tr className="text-white">
-                    <th scope="col">#</th>
+                    <th scope="col"></th>
                     <th scope="col">Name</th>
                     <th scope="col">Category</th>
+                    <th scope="col">SKU</th>
                     <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Supplier</th>
+                    <th scope="col">Expiration</th>
+                    <th scope="col">Threshold</th>
                     <th scope="col">Activity</th>
                   </tr>
                 </thead>
@@ -192,10 +205,16 @@ export default function ProductCRUD() {
                       <th scope="row">{index + 1}</th>
                       <td>{product.name}</td>
                       <td>{product.category}</td>
+                      <td>{product.sku}</td>
                       <td>{product.quantity}</td>
+                      <td>{product.price}</td>
+                      <td>{product.supplier}</td>
+                      <td>{product.expiration_date}</td>
+                      <td>{product.threshold}</td>
                       <td>
                         <button
-                          className="btn btn-info btn-sm"
+                          className="btn btn-info btn-sm mr-3"
+                          style={{ backgroundColor: " #4d79ff" }}
                           onClick={() => handleEdit(product.id)}
                         >
                           Edit

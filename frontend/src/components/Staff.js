@@ -31,13 +31,18 @@ export default function Staff() {
       <Navbar />
       <Topnav />
       <div className="container">
-        <div className="row my-4">
-          <div className="col-md-8"></div>
-          <div className="col-md-8">
-            <table className="table bg-white">
+        <div className="row my-2">
+          <div className="col-md-3"></div>
+          <div className="col-md-6">
+            <table
+              className="table bg-white"
+              style={{
+                border: "4px solid #ddd",
+                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+              }}
+            >
               <thead style={{ backgroundColor: "black" }}>
                 <tr className="text-white">
-                  <th scope="col">#</th>
                   <th scope="col">First Name</th>
 
                   <th scope="col">Email ID</th>
@@ -46,15 +51,6 @@ export default function Staff() {
               <tbody>
                 {users.map((user, index) => (
                   <tr key={user.id}>
-                    <th scope="row">
-                      <a
-                        className="btn btn-sm text-white"
-                        href=""
-                        style={{ backgroundColor: "black" }}
-                      >
-                        View
-                      </a>
-                    </th>
                     <td>{user.username}</td>
                     <td>{user.email}</td>
                   </tr>

@@ -9,6 +9,11 @@ export default function EditProduct() {
     name: "",
     quantity: "",
     category: "",
+    sku: "",
+    price: "",
+    supplier: "",
+    expiration_date: "",
+    threshold:"",
   });
 
   // Fetch product details
@@ -44,7 +49,15 @@ export default function EditProduct() {
   return (
     <div className="container">
       <div className="row my-4">
-        <div className="col-md-6 offset-md-3 p-3 bg-white">
+        <div
+          className="col-md-6 offset-md-3 p-3 bg-white"
+          style={{
+            border: "4px solid #ddd", 
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", 
+            borderRadius: "8px",
+            backgroundColor: " #b3b3ff", 
+          }}
+        >
           <h3>Edit Product</h3>
           <hr />
           <form onSubmit={handleFormSubmit}>
@@ -78,7 +91,63 @@ export default function EditProduct() {
                 onChange={handleInputChange}
               />
             </div>
-            <input className="btn btn-info" type="submit" value="Confirm" />
+            <div className="form-group">
+              <label>SKU</label>
+              <input
+                type="text"
+                className="form-control"
+                name="sku"
+                value={formData.sku}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="form-group">
+              <label>Price</label>
+              <input
+                type="text"
+                className="form-control"
+                name="price"
+                value={formData.price}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="form-group">
+              <label>Supplier</label>
+              <input
+                type="text"
+                className="form-control"
+                name="supplier"
+                value={formData.supplier}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="form-group">
+              <label>Expiration</label>
+              <input
+                type="text"
+                className="form-control"
+                name="expiration_date"
+                value={formData.expiration_date}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="form-group">
+              <label>Threshold</label>
+              <input
+                type="text"
+                className="form-control"
+                name="threshold"
+                value={formData.threshold}
+                onChange={handleInputChange}
+              />
+            </div>
+
+            <input
+              className="btn btn-info"
+              style={{ backgroundColor: " #4d79ff" }}
+              type="submit"
+              value="Confirm"
+            />
           </form>
         </div>
       </div>

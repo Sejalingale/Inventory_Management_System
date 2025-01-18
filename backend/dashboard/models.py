@@ -10,18 +10,17 @@ class Product(models.Model):
     category = models.CharField(max_length=50,null=True)
     sku = models.CharField(max_length=50,unique=True,default="xxx")
     quantity = models.PositiveIntegerField(default=0)
-    stock = models.PositiveIntegerField(default=0)
     price = models.DecimalField( max_digits=10, decimal_places=2,default=0.00)
     supplier = models.CharField( max_length=50,default="xyz")
     expiration_date = models.DateField(null=True)
-    threshold = models.PositiveIntegerField(default=10)  # Alert when stock falls below this
+    threshold = models.PositiveIntegerField(default=10)  
 
 def __str__(self):
         return str(self.name) 
 
 
 def is_below_threshold(self):
-        return self.stock < self.threshold
+        return self.quantity < self.threshold
 
 class Order(models.Model):
       product = models.ForeignKey(Product, on_delete=models.CASCADE,null=True)

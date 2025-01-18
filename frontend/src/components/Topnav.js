@@ -26,12 +26,12 @@ export default function Topnav() {
       <div className="container">
         <div className="row mt-4">
           <div className="col-md-4">
-            <div className="card">
+            <div className="card shadow-lg">
               <div
                 className="card-header text-white"
-                style={{ backgroundColor: "black" }}
+                style={{ backgroundColor: "#8080ff" }}
               >
-                Information
+                <strong>ALERT !</strong>
               </div>
               <div className="card-body">
                 <marquee behavior="" direction="">
@@ -40,7 +40,7 @@ export default function Topnav() {
                       ? lowStockProducts
                           .map(
                             (product) =>
-                              `${product.name} (Stock: ${product.stock})`
+                              `${product.name} (Low Stock: ${product.quantity})`
                           )
                           .join(" | ")
                       : "All stocks are sufficient!"}
@@ -50,10 +50,10 @@ export default function Topnav() {
             </div>
           </div>
           <div className="col-md-8">
-            <div className="card">
+            <div className="card shadow-lg">
               <div
                 className="card-header  text-white"
-                style={{ backgroundColor: "black" }}
+                style={{ backgroundColor: "#8080ff" }}
               >
                 Statistics
               </div>
@@ -65,10 +65,13 @@ export default function Topnav() {
                       to="/staff"
                     >
                       <div className="card my-card shadow text-center p-3">
+                        <h4 style={{ color: " #3333ff" }}>Staff</h4>
                         <h4>
-                          Staff <i className="fas fa-users"></i>
+                          <i
+                            className="fas fa-users"
+                            style={{ color: " #3333ff" }}
+                          ></i>
                         </h4>
-                        <h3>4</h3>
                       </div>
                     </Link>
                   </div>
@@ -78,23 +81,30 @@ export default function Topnav() {
                       to="/product"
                     >
                       <div className="card my-card shadow text-center p-3">
+                        <h4 style={{ color: " #3333ff" }}>Products</h4>
                         <h4>
-                          Products <i className="fas fa-box"></i>
+                          {" "}
+                          <i
+                            className="fas fa-box"
+                            style={{ color: " #3333ff" }}
+                          ></i>
                         </h4>
-                        <h3>4</h3>
                       </div>
                     </Link>
                   </div>
                   <div className="col-md-4">
                     <Link
                       className="text-decoration-none text-dark"
-                      to="/viewer_index"
+                      to="/order"
                     >
                       <div className="card my-card shadow text-center p-3">
+                        <h4 style={{ color: " #3333ff" }}> Orders</h4>
                         <h4>
-                          Orders <i className="fas fa-shipping-fast"></i>
+                          <i
+                            className="fas fa-shipping-fast"
+                            style={{ color: " #3333ff" }}
+                          ></i>
                         </h4>
-                        <h3>4</h3>
                       </div>
                     </Link>
                   </div>

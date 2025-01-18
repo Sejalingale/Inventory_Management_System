@@ -41,23 +41,24 @@ export default function Dashboard() {
       {/* add charts here */}
       <div className="container d-flex  ">
         <div className="col-md-4 my-5">
-          <div className="card">
+          <div className="card shadow-lg">
             <div
               className="card-header text-white"
-              style={{ backgroundColor: "black" }}
+              style={{ backgroundColor: "#8080ff" }}
             >
-              Get detail inventory Report
+              Inventory Report
             </div>
             <div className="card-body">
               <p>
                 Get a detail report of all the items present in your inventory
-                currently
+                currently.
               </p>
-              <p>Click on the download button below to down load the report</p>
+              <p>Click on the download button below to download the report.</p>
               <button
-                className="btn btn-outline-success"
+                className="btn btn"
                 type="button" // Change to type="button" to prevent form submission
                 onClick={handleDownload} // Trigger CSV download when clicked
+                style={{ backgroundColor: " #3333ff", color: "white" }}
               >
                 Download
               </button>
@@ -65,12 +66,17 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="container my-5 d-flex justify-content-center align-items-center">
-          <PieChart
-            series={[{ data: pieChartData }]}
-            width={600}
-            height={400}
-          />
+        <div className="container">
+          <div className="card my-4 ml-5 shadow-lg">
+            
+            <div className="container my-5 d-flex justify-content-center align-items-center">
+              <PieChart
+                series={[{ data: pieChartData }]}
+                width={600}
+                height={400}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
